@@ -1,0 +1,15 @@
+[user]
+	email = davidchidester@protonmail.com
+	name = David Chidester
+[format]
+	signoff = true
+[core]
+	editor = nvim
+[sendemail]
+	smtpserver = 127.0.0.1
+	smtpserverport = 1025
+	smptencryption = STARTTLS
+	smtpuser = davidchidester@protonmail.com
+	smtppass = $smtppass
+[init]
+	defaultBranch = main

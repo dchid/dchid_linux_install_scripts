@@ -1,0 +1,116 @@
+{
+	"app_config": {
+		"audio_config": {
+			"audio": "pipewire"
+		},
+		"bluetooth_config": {
+			"enabled": true
+		}
+	},
+	"archinstall-language": "English",
+	"auth_config": {},
+	"bootloader": "Limine",
+	"debug": false,
+	"custom_commands": [
+		"flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo",
+		"sh -c 'curl -fLo \"${XDG_DATA_HOME:-$HOME/.local/share}\"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'",
+		"nvim \"+PlugInstall\"",
+		"chsh -s /bin/fish",
+		"rustup default stable"
+	],
+	"disc_config": null
+	"hostname": "archlinux",
+	"kernels": [
+		"linux"
+	],
+	"locale_config": {
+		"kb_layout": "us",
+		"sys_enc": "UTF-8",
+		"sys_lang": "en_US"
+	},
+	"mirror_config": null,
+	"network_config": {},
+	"ntp": true,
+	"packages": [
+		"alacritty",
+		"audacity",
+		"aws-cli-v2",
+		"bat",
+		"bison",
+		"blender",
+		"bottom",
+		"cmus",
+		"curl",
+		"docker",
+		"dos2unix",
+		"duf",
+		"dist",
+		"eza",
+		"exiv2",
+		"fd",
+		"feh",
+		"firefox",
+		"fish",
+		"flex",
+		"gimp",
+		"git",
+		"github-cli",
+		"hydra",
+		"hyprland",
+		"hyprlock",
+		"hyprpaper",
+		"hyprpicker",
+		"john",
+		"jp2a",
+		"jq",
+		"krita",
+		"libnotify",
+		"libqalculate",
+		"libreoffice-fresh",
+		"libssl-dev",
+		"lolcat",
+		"libssl-dev",
+		"mako",
+		"mpv",
+		"neofetch",
+		"neovim",
+		"nmap",
+		"nodejs",
+		"npm",
+		"obs-studio",
+		"openssh",
+		"ponysay",
+		"procs",
+		"python",
+		"retroarch",
+		"rustup",
+		"sd",
+		"tar",
+		"terraform",
+		"texlive",
+		"transmission-cli",
+		"tre",
+		"ttf-hack-nerd",
+		"wireshark-qt",
+		"wofi"
+	],
+	"parallel_downloads": 0,
+	"profile_config": {
+		"gfx-driver": "All open-source",
+		"greeter": "ly",
+		"profile": "custom_settings": {
+			"Hyperland":
+			"seat_access": "polkit"
+		},
+		"details": [
+			"Hyperland"
+		],
+		"main": "Desktop"
+	},
+	"save_config": null,
+	"script": "guided",
+	"services": [],
+	"swap": true,
+	"timezone": "America/Los_Angeles",
+	"version": "3.0.9"
+}
