@@ -12,11 +12,6 @@
 	"bootloader": "Limine",
 	"debug": false,
 	"custom_commands": [
-		"flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo",
-		"sh -c 'curl -fLo \"${XDG_DATA_HOME:-$HOME/.local/share}\"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'",
-		"nvim \"+PlugInstall\"",
-		"chsh -s /bin/fish",
-		"rustup default stable",
 		"flatpak install flathub info.cemu.Cemu",
 		"flatpak install flathub com.github.johnfactotum.Foliate",
 		"flatpak install flathub rs.ruffle.Ruffle",
@@ -24,7 +19,14 @@
 		"flatpak install flathub com.valvesoftware.Steam",
 		"flatpak install flathub com.slack.Slack",
 		"flatpak install flathub dev.goats.xivlauncher",
-		"flatpak install flathub us.zoom.Zoom"
+		"flatpak install flathub us.zoom.Zoom",
+		"git clone https://github.com/dchid/dchid-dotfiles.git",
+		"cd dchid-dotfiles/dotfiles",
+		"mv * /home/dchid/.config/",
+		"sh -c 'curl -fLo \"${XDG_DATA_HOME:-$HOME/.local/share}\"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'",
+		"nvim \"+PlugInstall\"",
+		"chsh -s /bin/fish",
+		"rustup default stable"
 	],
 	"disc_config": null,
 	"hostname": "archlinux",
