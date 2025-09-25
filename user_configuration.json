@@ -18,7 +18,7 @@
 		"chsh -s /bin/fish",
 		"rustup default stable"
 	],
-	"disc_config": null
+	"disc_config": null,
 	"hostname": "archlinux",
 	"kernels": [
 		"linux"
