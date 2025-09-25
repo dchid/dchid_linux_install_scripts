@@ -98,9 +98,12 @@
 	"profile_config": {
 		"gfx-driver": "All open-source",
 		"greeter": "ly",
-		"profile": "custom_settings": {
-			"Hyperland":
-			"seat_access": "polkit"
+		"profile": {
+			"custom_settings": {
+				"Hyperland": {
+					"seat_access": "polkit"
+				}
+			}
 		},
 		"details": [
 			"Hyperland"
