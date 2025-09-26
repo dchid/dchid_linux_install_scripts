@@ -22,9 +22,10 @@
 		"flatpak install -y flathub us.zoom.Zoom",
 		"git clone https://github.com/dchid/dchid-dotfiles.git",
 		"cd dchid-dotfiles/dotfiles",
+		"mkdir -p /home/dchid/.config/",
 		"mv * /home/dchid/.config/",
 		"sh -c 'curl -fLo \"${XDG_DATA_HOME:-$HOME/.local/share}\"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'",
-		"nvim \"+PlugInstall\"",
+		"nvim \"+PlugInstall\" \"+qa\"",
 		"chsh -s /bin/fish",
 		"rustup default stable"
 	],
