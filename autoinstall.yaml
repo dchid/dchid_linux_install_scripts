@@ -41,6 +41,7 @@ autoinstall:
     - jq
     - mpv
     - ncal
+    - net-tools
     - neofetch
     - neovim
     - nodejs
