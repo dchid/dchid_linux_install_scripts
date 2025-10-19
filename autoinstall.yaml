@@ -28,6 +28,7 @@ autoinstall:
     - alacritty
     - eza
     - git
+    - cava
     - curl
     - cmus
     - duf
@@ -52,7 +53,6 @@ autoinstall:
     - ffmpeg
     - rustup
     - sd
-    - tre-command
   late-commands:
     - apt update
     - apt upgrade -y
