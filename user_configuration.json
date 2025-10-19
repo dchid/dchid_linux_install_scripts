@@ -106,7 +106,6 @@
 		"transmission-cli",
 		"tre",
 		"ttf-hack-nerd",
-		"wireshark-qt",
 		"wofi"
 	],
 	"parallel_downloads": 0,
