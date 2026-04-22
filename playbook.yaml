@@ -1,0 +1,133 @@
+---
+- name: Configure workstation
+  hosts: localhost
+  become: yes
+  
+  tasks:
+    - name: Install packages on Arch
+      community.general.pacman:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ common_packages + arch_packages }}"
+      when: ansible_facts['distribution'] == "Archlinux"
+    
+    - name: Install packages on Ubuntu
+      apt:
+        name: "{{ item }}"
+        state: present
+        update_cache: yes
+      loop: "{{ common_packages + ubuntu_packages }}"
+      when: ansible_facts['distribution'] == "Ubuntu"
+
+    - name: install cargo packages
+      community.general.cargo:
+        name: "{{ item }}"
+        state: present
+        executable: /usr/bin/cargo
+      loop: "{{ cargo_packages }}"
+    
+    - name: Install Flatpak packages
+      community.general.flatpak:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ flatpak_packages }}"
+
+    - name: Install RetroArch (Arch)
+      community.general.pacman:
+        name: "{{ ['retroarch', 'libretro-core-info'] + 
+                  retroarch_cores | map('regex_replace', '^', 'libretro-') | list }}"
+        state: present
+      when: ansible_facts['distribution'] == "Archlinux"
+    
+    - name: Add RetroArch PPA (Ubuntu)
+      apt_repository:
+        repo: ppa:libretro/stable
+      when: ansible_facts['distribution'] == "Ubuntu"
+    
+    - name: Install RetroArch (Ubuntu)
+      apt:
+        name: "{{ ['retroarch'] + 
+                  retroarch_cores | map('regex_replace', '^', 'libretro-') | list }}"
+        update_cache: yes
+      when: ansible_facts['distribution'] == "Ubuntu"
+
+  vars:
+    common_packages:
+      - cmus
+      - fdupes
+      - feh
+      - ffmpeg
+      - fish
+      - git
+      - hydra
+      - john
+      - jq
+      - lolcat
+      - mpv
+      - nmap
+      - nodejs
+      - npm
+      - neovim
+      - retroarch
+      - rustup
+      - terraform
+      - texlive
+      - transmission-cli
+      - wofi
+    
+    arch_packages:
+      - base-devel
+      - docker
+      - github-cli
+      - libqalculate
+      - openssh
+      - python
+      - ponysay
+      - ttf-hack-nerd
+      - yay
+    
+    ubuntu_packages:
+      - build-essential
+      - docker.io
+      - gh
+      - openssh-client
+      - qalc
+      - software-properties-common
+
+    cargo_packages:
+      - alacritty
+      - bottom
+      - bat
+      - duf
+      - dust
+      - fd
+      - procs
+      - sd
+    
+    flatpak_packages:
+      - org.audacityteam.Audacity
+      - org.blender.Blender
+      - info.cemu.Cemu
+      - org.mozilla.firefox
+      - com.github.johnfactotum.Foliate
+      - io.freetubeapp.FreeTube
+      - org.gimp.GIMP
+      - org.inkscape.Inkscape
+      - org.kde.krita
+      - org.libreoffice.LibreOffice
+      - com.obsproject.Studio
+      - rs.ruffle.Ruffle
+      - com.slack.Slack
+      - com.valvesoftware.Steam
+      - dev.goats.xivlauncher
+      - us.zoom.Zoom
+
+    retroarch_cores:
+      - desmume           # NDS
+      - dolphin           # GCN, WII
+      - flycast           # DC
+      - mgba              # GB, GBA, GBC
+      - nestopia          # NES, FC
+      - bsnes             # SNES, SFC
+      - mupen64plus-next  # N64
+      - ppsspp            # PSP
