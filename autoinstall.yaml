@@ -53,6 +53,7 @@ autoinstall:
     - ffmpeg
     - rustup
     - sd
+    - silversearcher-ag
     - qrencode
   late-commands:
     - apt update
