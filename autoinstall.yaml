@@ -33,6 +33,7 @@ autoinstall:
     - cmus
     - duf
     - gh
+    - fastfetch
     - bison
     - wget
     - fdupes
@@ -43,7 +44,6 @@ autoinstall:
     - mpv
     - ncal
     - net-tools
-    - neofetch
     - neovim
     - nmap
     - nodejs

@@ -54,6 +54,7 @@
   vars:
     common_packages:
       - cmus
+      - fastfetch
       - fdupes
       - feh
       - ffmpeg
